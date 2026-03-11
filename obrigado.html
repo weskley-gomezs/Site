@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obrigado - WK Company</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .thanks-section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: var(--dark-bg);
+            padding: 20px;
+        }
+        .thanks-card {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 60px 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+        .thanks-card h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .thanks-card p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+    <section class="thanks-section">
+        <div class="thanks-card reveal">
+            <h1>Obrigado!</h1>
+            <p>Recebemos sua solicitação com sucesso. Nosso time comercial entrará em contato com você em breve via WhatsApp ou E-mail.</p>
+            <a href="/" class="btn-cta">Voltar para o Início</a>
+        </div>
+    </section>
+
+    <script>
+        // Simples animação de entrada
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('.reveal').style.opacity = '1';
+            document.querySelector('.reveal').style.transform = 'translateY(0)';
+        });
+    </script>
+</body>
+</html>
