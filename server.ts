@@ -132,5 +132,5 @@ async function startServer() {
   return app;
 }
 
-// Export para Vercel
-export default startServer();
+// Export para Vercel e local
+export const app = await startServer();
