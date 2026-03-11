@@ -112,13 +112,25 @@ async function startServer() {
     });
     app.use(vite.middlewares);
   } else {
-    app.use(express.static("dist"));
+    const distPath = path.join(__dirname, "dist");
+    app.use(express.static(distPath));
+    // Fallback para SPA
+    app.get("*", (req, res, next) => {
+      if (req.path.startsWith('/api')) return next();
+      res.sendFile(path.join(distPath, "index.html"));
+    });
   }
 
-  app.listen(PORT, "0.0.0.0", () => {
-    console.log(`Servidor rodando em http://localhost:${PORT}`);
-    console.log(`Acesse seus leads em: http://localhost:${PORT}/api/leads`);
-  });
+  // Apenas inicia se não for Vercel
+  if (process.env.NODE_ENV !== "production") {
+    app.listen(PORT, "0.0.0.0", () => {
+      console.log(`Servidor rodando em http://localhost:${PORT}`);
+      console.log(`Acesse seus leads em: http://localhost:${PORT}/api/leads`);
+    });
+  }
+
+  return app;
 }
 
-startServer();
+// Export para Vercel
+export default startServer();
