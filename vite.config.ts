@@ -10,8 +10,6 @@ export default defineConfig({
         sites: path.resolve(__dirname, 'sites.html'),
         sistemas: path.resolve(__dirname, 'sistemas.html'),
         lojas: path.resolve(__dirname, 'lojas-virtuais.html'),
-        portfolio: path.resolve(__dirname, 'portfolio.html'),
-        sobre: path.resolve(__dirname, 'sobre.html'),
         contato: path.resolve(__dirname, 'contato.html'),
       },
     },
