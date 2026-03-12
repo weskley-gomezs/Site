@@ -1,11 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Header Scroll Effect
     const header = document.querySelector('header');
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
+        lastScrollY = window.scrollY;
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                if (lastScrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+                ticking = false;
+            });
+            ticking = true;
         }
     });
 
